@@ -1,5 +1,7 @@
 name: opencode
 
+workflow_dispatch:
+
 on:
   issue_comment:
     types: [created]
