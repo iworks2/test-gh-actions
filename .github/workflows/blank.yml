@@ -1,0 +1,22 @@
+name: Test Issue Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Debug event
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+        run: |
+          echo "Issue comment event received!"
+          echo "Comment: $COMMENT_BODY"
+          echo "Event: $GITHUB_EVENT_NAME"
+          echo "Repository: $GITHUB_REPOSITORY"
