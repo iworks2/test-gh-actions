@@ -1,0 +1,16 @@
+name: Test GitHub Actions
+
+on:
+  push:
+  workflow_dispatch:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: |
+          echo "GitHub Actions is working!"
+          echo "Event: ${{ github.event_name }}"
